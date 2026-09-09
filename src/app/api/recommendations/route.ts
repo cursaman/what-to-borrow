@@ -7,7 +7,7 @@ export async function GET(request:NextRequest){
   const key=process.env.NL_API_KEY;
   if(!key)return NextResponse.json({error:"API 인증키가 설정되지 않았습니다."},{status:503});
   const keyword=keywords[request.nextUrl.searchParams.get("mood")??""]??keywords.focus;
-  const params=new URLSearchParams({key,apiType:"json",srchTarget:"total",kwd:keyword,pageSize:"9",pageNum:"1",sort:"ipub_year",order:"desc"});
+  const params=new URLSearchParams({key,apiType:"json",srchTarget:"total",kwd:keyword,pageSize:"6",pageNum:"1",sort:"ipub_year",order:"desc"});
   try{
     const response=await fetch(`https://www.nl.go.kr/NL/search/openApi/search.do?${params}`,{next:{revalidate:3600}});
     if(!response.ok)throw new Error();
