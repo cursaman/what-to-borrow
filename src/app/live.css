@@ -24,9 +24,15 @@
 .book-reason { display: block; min-height: 48px; margin: 0 0 18px; color: #4f463a; line-height: 1.6; }
 
 .modal-backdrop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px; background: rgba(24, 16, 11, .72); backdrop-filter: blur(5px); }
-.book-modal { position: relative; width: min(600px, 100%); max-height: calc(100vh - 40px); overflow: auto; padding: clamp(30px, 6vw, 54px); color: var(--ink); background: var(--card); border: 1px solid #bca982; border-radius: 3px; box-shadow: 12px 14px 0 rgba(35, 24, 17, .32); }
+.book-modal { position: relative; width: min(820px, 100%); max-height: calc(100vh - 40px); overflow: auto; padding: clamp(30px, 5vw, 50px); color: var(--ink); background: var(--card); border: 1px solid #bca982; border-radius: 3px; box-shadow: 12px 14px 0 rgba(35, 24, 17, .32); }
 .book-modal::before { content: ""; position: absolute; inset: 13px; border: 1px solid #dfd4bf; pointer-events: none; }
 .modal-close { position: absolute; z-index: 1; top: 18px; right: 20px; width: 40px; height: 40px; color: var(--ink); background: #eee3cc; border: 1px solid #cbb992; border-radius: 50%; font-size: 26px; line-height: 1; cursor: pointer; }
+.modal-layout { display: grid; grid-template-columns: 190px 1fr; gap: clamp(28px, 5vw, 50px); align-items: start; }
+.modal-cover { position: sticky; top: 0; }
+.modal-cover img { display: block; width: 100%; height: auto; aspect-ratio: 22 / 31; object-fit: cover; background: #e8dcc5; border-radius: 2px 8px 8px 2px; box-shadow: -6px 0 0 var(--wood), 8px 11px 20px rgba(47, 32, 21, .22); }
+.cover-placeholder { aspect-ratio: 22 / 31; display: flex; flex-direction: column; justify-content: space-between; padding: 24px 18px; color: #f7ecd8; background: var(--green-dark); border: 1px solid #9f8b67; border-radius: 2px 8px 8px 2px; box-shadow: -6px 0 0 var(--wood), 8px 11px 20px rgba(47, 32, 21, .22); }
+.cover-placeholder span { font-family: Georgia, "Noto Serif KR", serif; font-size: 24px; line-height: 1.35; }
+.cover-placeholder small { padding-top: 12px; border-top: 1px solid rgba(255,255,255,.35); font-size: 11px; }
 .modal-kicker { margin: 0 0 14px; color: var(--red); font-family: Georgia, serif; font-size: 12px; font-weight: 700; letter-spacing: .17em; }
 .book-modal h2 { max-width: 470px; margin: 0; padding-right: 26px; font-family: Georgia, "Noto Serif KR", serif; font-size: clamp(30px, 5vw, 44px); line-height: 1.2; letter-spacing: -.045em; }
 .modal-author { margin: 14px 0 30px; color: var(--muted); font-size: 17px; }
@@ -37,4 +43,5 @@
 .modal-reason { margin: 24px 0 0; padding: 18px; color: #514639; background: #f1e7d1; border-left: 4px solid var(--gold); line-height: 1.65; }
 .detail-link { position: relative; z-index: 1; min-height: 52px; display: flex; align-items: center; justify-content: space-between; margin-top: 28px; padding: 0 18px; color: #fff8e9; background: var(--green-dark); border-radius: 3px; text-decoration: none; font-weight: 800; }
 .detail-link:hover { background: var(--green); }
-@media (max-width: 520px) { .book-modal dl div { grid-template-columns: 72px 1fr; } .book-modal { padding: 34px 26px 28px; } }
+@media (max-width: 620px) { .modal-layout { grid-template-columns: 120px 1fr; gap: 22px; } .modal-cover { position: static; } }
+@media (max-width: 520px) { .modal-layout { grid-template-columns: 1fr; } .modal-cover { width: 130px; } .book-modal dl div { grid-template-columns: 72px 1fr; } .book-modal { padding: 58px 26px 28px; } }
